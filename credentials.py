@@ -32,6 +32,22 @@ class Credentials:
         Credentials.accounts_credentials.remove(self)
 
     @classmethod
+    def display_accounts(cls):
+        '''
+        test to see if the display is shown
+
+        '''
+        displayed_accounts = ''
+        i = 1
+        for accounts_credential in cls.accounts_credentials:
+            displayed_accounts += '{} - {}\n' .format(i, accounts_credential.account)
+            i=i+1
+        return displayed_accounts
+
+        self.assertEqual(Contact.display_contact(),Contact.contact_list)
+
+
+    @classmethod
     def password_generator(cls, password_length = 8):
         '''
         Method for generating random passwords with lower-case, upper-case, digits and special characters
