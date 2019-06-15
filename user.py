@@ -16,7 +16,12 @@ class User:
         self.password = password
         self.email = email
 
-
+    def save_user(self):
+        '''
+        Test to determine if multiple users can be added  
+        
+        '''
+        User.user_list.append(self)
 
 
 
