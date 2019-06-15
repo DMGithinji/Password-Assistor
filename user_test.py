@@ -51,6 +51,14 @@ class TestUser(unittest.TestCase):
         password_entered = User.password_correct("!q1@w2#e3$r4%t5")
         self.assertTrue(password_entered)
 
+    def test_user_exist(self):
+        '''
+        Test to confirm whether if user exists false will be returned
+
+        '''
+        self.new_user.save_user()
+        name_entered = User.name_exists("Denis", "Githinji")
+        self.assertFalse (name_entered)
 
 if __name__ == "__main__":
     unittest.main()
