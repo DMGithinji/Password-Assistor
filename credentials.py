@@ -1,3 +1,5 @@
+import random
+import string
 
 class Credentials:
     '''
@@ -22,3 +24,6 @@ class Credentials:
 
         '''
         Credentials.accounts_credentials.append(self)
+
+
+

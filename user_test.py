@@ -60,5 +60,6 @@ class TestUser(unittest.TestCase):
         name_entered = User.name_exists("Denis", "Githinji")
         self.assertFalse (name_entered)
 
+    
 if __name__ == "__main__":
     unittest.main()

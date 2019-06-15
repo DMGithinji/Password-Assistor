@@ -37,9 +37,18 @@ class TestCredentials(unittest.TestCase):
 
         '''
         self.new_account_credentials.save_credentials()
-        self.test_credentials = Credentials("Twitter","Username2", "username2@gmail.com", '12345')
+        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
         self.test_credentials.save_credentials()
         self.assertEqual(len(Credentials.accounts_credentials),2)
+
+    def test_password_update(self):
+        '''
+        Test to determine if password generator can generate random passwords
+
+        '''
+        self.new_account_credentials.save_credentials()
+        generated_password = Credentials.password_generator(10)
+        self.assertEqual(   len(generated_password), 10)
 
 if __name__ == "__main__":
     unittest.main()
