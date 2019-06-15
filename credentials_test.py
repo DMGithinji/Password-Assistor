@@ -16,6 +16,13 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_account_credentials = User("Facebook","DMG", "dmg@gmail.com", '!q1@w2#e3$r4%t5')
 
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+
+        '''
+        Credentials.accounts_credentials = []
+
 
 if __name__ == "__main__":
     unittest.main()

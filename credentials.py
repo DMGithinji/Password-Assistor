@@ -4,7 +4,7 @@ class Credentials:
     Class that generates new instance of the account credentials, with the account details to the application
 
     '''
-    account_list = []
+    accounts_credentials = []
 
     def __init__ (self, account, username, email, password):
         '''
