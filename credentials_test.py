@@ -31,5 +31,15 @@ class TestCredentials(unittest.TestCase):
         self.new_account_credentials.save_credentials()
         self.assertEqual(len(Credentials.accounts_credentials),1)
 
+    def test_multiple_saved_credentials(self):
+        '''
+        Test to determine if user can add credentials for multiple accounts
+
+        '''
+        self.new_account_credentials.save_credentials()
+        self.test_credentials = Credentials("Twitter","Username2", "username2@gmail.com", '12345')
+        self.test_credentials.save_credentials()
+        self.assertEqual(len(Credentials.accounts_credentials),2)
+
 if __name__ == "__main__":
     unittest.main()
