@@ -23,7 +23,14 @@ class User:
         '''
         User.user_list.append(self)
 
+    @classmethod
+    def password_correct(cls, password):
+        ''' 
+        Method to confirm whether password entered is correct
 
+        '''
+        for user in cls.user_list:
+            return user.password == password
 
 
 
