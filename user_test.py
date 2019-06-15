@@ -42,15 +42,15 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list), 1)
 
-    def test_save_multiple_user(self):
+    def test_password_confirmation(self):
         '''
-        Test to check if multiple users can be saved
+        Test to determine whether input password is correct
 
         '''
         self.new_user.save_user()
-        test_user = User("Test", "User", "12345", "testuser@gmail.com")
-        test_user.save_user()
-        self.assertEqual(len(User.user_list),2)
+        password_entered = User.password_correct("!q1@w2#e3$r4%t5")
+        self.assertTrue(password_entered)
+
 
 if __name__ == "__main__":
     unittest.main()

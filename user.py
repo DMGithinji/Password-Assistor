@@ -5,7 +5,7 @@ class User:
     
     '''
     user_list = []
-    
+
     def __init__ (self, first_name, last_name, password, email):
         '''
         __init__ method that helps to define properties for our objects
@@ -18,10 +18,12 @@ class User:
 
     def save_user(self):
         '''
-        Test to determine if multiple users can be added  
-        
+        Method to save user to the application
+
         '''
         User.user_list.append(self)
+
+
 
 
 
