@@ -46,7 +46,6 @@ class Credentials:
 
         self.assertEqual(Contact.display_contact(),Contact.contact_list)
 
-
     @classmethod
     def password_generator(cls, password_length = 8):
         '''

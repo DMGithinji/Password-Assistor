@@ -41,15 +41,6 @@ class TestCredentials(unittest.TestCase):
         self.test_credentials.save_credentials()
         self.assertEqual(len(Credentials.accounts_credentials),2)
 
-    def test_password_update(self):
-        '''
-        Test to determine if password generator can generate random passwords
-
-        '''
-        self.new_account_credentials.save_credentials()
-        generated_password = Credentials.password_generator(10)
-        self.assertEqual(len(generated_password), 10)
-
     def test_delete_credentials(self):
         '''
         test_delete_credentials to test if we can remove a credentials from our credentials list
@@ -70,6 +61,27 @@ class TestCredentials(unittest.TestCase):
         self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
         self.test_credentials.save_credentials()
         self.assertEqual(Credentials.display_accounts(), '1 - Facebook\n2 - Twitter\n')
+
+    def test_display_account_credentials(self):
+        '''
+        Test to see if an account credentials can be displayed
+
+        '''
+        self.new_account_credentials.save_credentials()
+        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
+        self.test_credentials.save_credentials()
+        account_details = Credentials.find_by_account("Twitter")
+        self.assertEqual(account_details, Credentials.test_credentials)
+
+    def test_password_update(self):
+        '''
+        Test to determine if password generator can generate random passwords
+
+        '''
+        self.new_account_credentials.save_credentials()
+        generated_password = Credentials.password_generator(10)
+        self.assertEqual(len(generated_password), 10)
+
 
 if __name__ == "__main__":
     unittest.main()
