@@ -25,6 +25,11 @@ class Credentials:
         '''
         Credentials.accounts_credentials.append(self)
 
+    def delete_credentials(self):
+        '''
+        delete_credentials method deletes a saved credentials from the credentials_list
+        '''
+        Credentials.accounts_credentials.remove(self)
 
     @classmethod
     def password_generator(cls, password_length = 8):
