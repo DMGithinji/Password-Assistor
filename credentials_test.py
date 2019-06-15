@@ -61,6 +61,15 @@ class TestCredentials(unittest.TestCase):
         self.new_account_credentials.delete_credentials()
         self.assertEqual(len(Credentials.accounts_credentials),1)
 
+    def test_contact_display_all_contacts(self):
+        '''
+        Test to see if all accounts can display
+
+        '''
+        self.new_account_credentials.save_credentials()
+        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
+        self.test_credentials.save_credentials()
+        self.assertEqual(Credentials.display_contact(), "Account no. 1 - Facebook", "Account no. 2 - Twitter")
 
 if __name__ == "__main__":
     unittest.main()
