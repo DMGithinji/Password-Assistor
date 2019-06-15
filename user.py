@@ -32,5 +32,11 @@ class User:
         for user in cls.user_list:
             return user.password == password
 
+    @classmethod
+    def name_exists(cls, first_name, last_name):
+        ''' 
+        Method to confirm whether password entered is correct
 
-
+        '''
+        for user in cls.user_list:
+            return not(user.first_name == first_name and user.last_name == last_name)
