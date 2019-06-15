@@ -37,8 +37,8 @@ class TestCredentials(unittest.TestCase):
 
         '''
         self.new_account_credentials.save_credentials()
-        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
-        self.test_credentials.save_credentials()
+        test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
+        test_credentials.save_credentials()
         self.assertEqual(len(Credentials.accounts_credentials),2)
 
     def test_delete_credentials(self):
@@ -47,8 +47,8 @@ class TestCredentials(unittest.TestCase):
 
         '''
         self.new_account_credentials.save_credentials()
-        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
-        self.test_credentials.save_credentials()
+        test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
+        test_credentials.save_credentials()
         self.new_account_credentials.delete_credentials()
         self.assertEqual(len(Credentials.accounts_credentials),1)
 
@@ -58,8 +58,8 @@ class TestCredentials(unittest.TestCase):
 
         '''
         self.new_account_credentials.save_credentials()
-        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
-        self.test_credentials.save_credentials()
+        test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
+        test_credentials.save_credentials()
         self.assertEqual(Credentials.display_accounts(), '1 - Facebook\n2 - Twitter\n')
 
     def test_display_account_credentials(self):
@@ -68,10 +68,10 @@ class TestCredentials(unittest.TestCase):
 
         '''
         self.new_account_credentials.save_credentials()
-        self.test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
-        self.test_credentials.save_credentials()
+        test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
+        test_credentials.save_credentials()
         account_details = Credentials.find_by_account("Twitter")
-        self.assertEqual(account_details, Credentials.test_credentials)
+        self.assertEqual(account_details, test_credentials)
 
     def test_password_update(self):
         '''

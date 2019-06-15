@@ -54,3 +54,13 @@ class Credentials:
         '''
         password_chars = string.ascii_letters + string.digits + string.punctuation
         return ''.join(random.choice(password_chars) for i in range (password_length))
+
+    @classmethod
+    def find_by_account(cls, account_name):
+        '''
+
+
+        '''
+        for account_details in cls.accounts_credentials:
+            if account_details.account == account_name:
+                return account_details
