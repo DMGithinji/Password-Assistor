@@ -26,4 +26,11 @@ class Credentials:
         Credentials.accounts_credentials.append(self)
 
 
+    @classmethod
+    def password_generator(cls, password_length = 8):
+        '''
+        Method for generating random passwords with lower-case, upper-case, digits and special characters
 
+        '''
+        password_chars = string.ascii_letters + string.digits + string.punctuation
+        return ''.join(random.choice(password_chars) for i in range (password_length))
