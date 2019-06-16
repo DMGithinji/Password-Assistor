@@ -120,7 +120,7 @@ def main():
 
                         short_code = input().lower()
                         if short_code == 'sa':
-                            print("New Account Name")
+                            print("Save an Existing Account")
                             print("-"*10)
 
                             print ("Account name ....")
@@ -140,10 +140,37 @@ def main():
                             print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
                             print ('\n')
 
+                        elif short_code == 'na':
+                            print("Create and Save New Account Credentials")
+                            print("-"*10)
 
-                    
-                    ##########################################################################################################################
+                            print ("Account name ....")
+                            account = input()
 
+                            print("Account username ...")
+                            username = input()
+
+                            print("Email used for account...")
+                            account_email = input()                    ##########################################################################################################################
+
+                            print("Would you like to suggest us to generate a secure password for you or would you like to use one of your own?")
+                            print("Enter 'gen' - for us to generate one for you\nEnter 'mine' - if you wish to input your own")
+                            decision = input().lower()
+
+                            if decision == 'mine':
+                                print("Enter your desired password for this account...")
+                                account_password = input()
+
+                            elif decision == 'gen':
+                                print("Enter your desired password length...")
+                                password_length = int(input())
+                                account_password =  password_generator(password_length)
+                                print(f"Your generated password is: {account_password}")
+
+                            save_credentials(create_account(account, username, account_email, account_password))
+                            print ('\n')
+                            print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
+                            print ('\n')
 
                 else:
                     print("Oops, the passwords do not seem to march, please try again")
