@@ -39,7 +39,7 @@ def create_account(account,username,email, password):
     Function to create a new user
 
     '''
-    new_account = Credentials(first_name, last_name, email, password)
+    new_account = Credentials(account, username, email, password)
     return new_account
 
 def save_credentials(credentials):
@@ -97,7 +97,7 @@ def main():
             last_name = input()
 
             print("Email ...")
-            email = input()
+            email = input()            
 
             while True:
                 print("Password ...")
@@ -112,8 +112,36 @@ def main():
                     print ('\n')
                     print(f"{first_name} {last_name}, your Password Assistor (PA) account has been successfully been created")
                     print ('\n')
+                    token = True
                     ##########################################################################################################################
+                    while token:
+                        print("Use these short codes to navigate through this section of the app:\nsa - Save Account Credentials\nna - New Account Credentials\nda - Display Accounts that have been registered on the app\ndc - Display Credentials for a specific account that has been registered on the app\ndel - Delete an account that has been registered on the app\nex -Exit the Credentials Section")
+                        print("Input shortcode: ")
 
+                        short_code = input().lower()
+                        if short_code == 'sa':
+                            print("New Account Name")
+                            print("-"*10)
+
+                            print ("Account name ....")
+                            account = input()
+
+                            print("Account username ...")
+                            username = input()
+
+                            print("Email used for account...")
+                            account_email = input()
+
+                            print("Account Password ...")
+                            account_password = input()
+
+                            save_credentials(create_account(account, username, account_email, account_password))
+                            print ('\n')
+                            print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
+                            print ('\n')
+
+
+                    
                     ##########################################################################################################################
 
 
