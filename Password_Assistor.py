@@ -2,7 +2,10 @@
 from user import User
 from credentials import Credentials
 
-#######################################################################
+####################################################################################
+#User functions
+####################################################################################
+
 def create_user(first_name,last_name,email, password):
     '''
     Function to create a new user
@@ -32,7 +35,9 @@ def name_exists(first_name, last_name):
     '''
     return Credentials.name_exists(first_name, last_name)
 
-#######################################################################
+####################################################################################
+#Credentials functions
+####################################################################################
 
 def create_account(account,username,email, password):
     '''
@@ -82,14 +87,15 @@ def password_generator(password_length):
     '''
     return Credentials.password_generator(password_length)
 
-#######################################################################
-
+###################################################################################
+#Begin main program
+###################################################################################
 def main():
 
     print("WELCOME TO YOUR P.A. - PASSWORD ASSISTOR ")
 
     while True:
-        print("Use these short codes to navigate through this section of the app:\nca - create a new user account\nlg - login to existing account\nex -exit the contact list ")
+        print("Use these short codes to navigate through this section of the app:\nca - create a new user account\nex -exit the contact list ")
         print("Input shortcode: ")
 
         short_code = input().lower()
@@ -121,6 +127,9 @@ def main():
                     print(f"{first_name} {last_name}, your Password Assistor (PA) account has been successfully been created")
                     print ('\n')
                     ##########################################################################################################################
+                    #Credentials section
+                    ##########################################################################################################################
+
                     while True:
                         print("Use these short codes to navigate through this section of the app:\nsa - Save Account Credentials\nna - New Account Credentials\nda - Display Accounts that have been registered on the app\ndc - Display Credentials for a specific account that has been registered on the app\ndel - Delete an account that has been registered on the app\nex -Exit the Credentials Section")
                         print("Input shortcode: ")
@@ -210,6 +219,9 @@ def main():
                                 print(f"{account_name} has been successfully deleted")
                             else:
                                 print("The account name you entered is currently not registered in the app")
+                    ##########################################################################################################################
+                    #End of credentials section
+                    ##########################################################################################################################
 
                 else:
                     print("Oops, the passwords do not seem to march, please try again")
@@ -220,24 +232,6 @@ def main():
 
         else:
             print("I really didn't get that. Please use the short codes")
-    '''
-        elif short_code == 'lg':
-
-            print("Please enter your Password Assistor (PA) account details to login")
-            print("-"*10)
-
-            print ("Email ....")
-            email = input()
-
-            print("Password ...")
-            password = input()
-
-            if login_checker(email, password):
-                print(f"Welcome {first_name}, you have successfully logged in")
-
-            else:
-                print("The login details you entered do not march, please try again by entering shortcode 'lg' or exit by entering shortcode 'ex'")
-    '''
 
 if __name__ == '__main__':
     main()
