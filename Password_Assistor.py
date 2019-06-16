@@ -49,12 +49,12 @@ def save_credentials(credentials):
     '''
     credentials.save_credentials()
 
-def delete_credentials(credentials):
+def delete_by_account(account):
     '''
     Function to  delete saved credentials from the credentials_list
 
     '''
-    credentials.delete_credentials()
+    Credentials.delete_by_account(account)
 
 def display_accounts():
     '''
@@ -161,17 +161,23 @@ def main():
                             if decision == 'mine':
                                 print("Enter your desired password for this account...")
                                 account_password = input()
+                                save_credentials(create_account(account, username, account_email, account_password))
+                                print ('\n')
+                                print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
+                                print ('\n')
 
                             elif decision == 'gen':
                                 print("Enter your desired password length...")
                                 password_length = int(input())
                                 account_password =  password_generator(password_length)
                                 print(f"Your generated password is: {account_password}")
+                                save_credentials(create_account(account, username, account_email, account_password))
+                                print ('\n')
+                                print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
+                                print ('\n')
 
-                            save_credentials(create_account(account, username, account_email, account_password))
-                            print ('\n')
-                            print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
-                            print ('\n')
+                            else:
+                                print("Oops, that short code does not seem to march any of the prescribed shortcodes, please try again")
 
                         elif short_code == 'da':
                             print("The following are the accounts have your login credentials saved:")
@@ -181,6 +187,12 @@ def main():
                             print("Enter the name of the account you wish to see the credentials of")
                             account_name = input()
                             print(find_by_account(account_name))
+
+                        elif short_code == 'del':
+                            print("Enter the name of the account you wish to delete")
+                            account_name = input()
+                            delete_by_account(account_name)
+                            print(f"{account_name} has been successfully deleted")
 
                 else:
                     print("Oops, the passwords do not seem to march, please try again")

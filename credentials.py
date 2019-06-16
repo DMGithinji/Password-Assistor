@@ -25,12 +25,6 @@ class Credentials:
         '''
         Credentials.accounts_credentials.append(self)
 
-    def delete_credentials(self):
-        '''
-        delete_credentials method deletes a saved credentials from the credentials_list
-        '''
-        Credentials.accounts_credentials.remove(self)
-
     @classmethod
     def display_accounts(cls):
         '''
@@ -57,7 +51,20 @@ class Credentials:
             if account_details.account == account_name:
                 return "Account name: " + account_details.account + "\nUsername: " + account_details.username + "\nEmail used: " + account_details.email + "\nPAssword: " + account_details.password
 
-                
+    @classmethod
+    def delete_by_account(cls, account_name):
+        '''
+        Method to display an account's credentials on entering account name
+        Args:
+            account_name: Name of the account which you seek display its credentials
+        '''
+        i=-1
+        for account_details in cls.accounts_credentials:
+            i=i+1
+            if account_details.account == account_name:
+                cls.accounts_credentials.pop(i)
+                    
+
     @classmethod
     def password_generator(cls, password_length = 8):
         '''
