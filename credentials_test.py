@@ -71,7 +71,7 @@ class TestCredentials(unittest.TestCase):
         test_credentials = Credentials("Twitter","Username2","username2@gmail.com",'12345')
         test_credentials.save_credentials()
         account_details = Credentials.find_by_account("Twitter")
-        self.assertEqual(account_details, test_credentials)
+        self.assertEqual(account_details, "Account name: Twitter\nUsername: Username2\nEmail used: username2@gmail.com\nPAssword: 12345")
 
     def test_password_update(self):
         '''

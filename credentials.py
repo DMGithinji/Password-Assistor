@@ -55,7 +55,7 @@ class Credentials:
         '''
         for account_details in cls.accounts_credentials:
             if account_details.account == account_name:
-                return account_details
+                return "Account name: " + account_details.account + "\nUsername: " + account_details.username + "\nEmail used: " + account_details.email + "\nPAssword: " + account_details.password
 
                 
     @classmethod

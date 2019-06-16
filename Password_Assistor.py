@@ -150,7 +150,9 @@ def main():
                             username = input()
 
                             print("Email used for account...")
-                            account_email = input()                    ##########################################################################################################################
+                            account_email = input()                    
+                            
+                            ##########################################################################################################################
 
                             print("Would you like to suggest us to generate a secure password for you or would you like to use one of your own?")
                             print("Enter 'gen' - for us to generate one for you\nEnter 'mine' - if you wish to input your own")
@@ -174,6 +176,11 @@ def main():
                         elif short_code == 'da':
                             print("The following are the accounts have your login credentials saved:")
                             print(display_accounts())
+
+                        elif short_code == 'dc':
+                            print("Enter the name of the account you wish to see the credentials of")
+                            account_name = input()
+                            print(find_by_account(account_name))
 
                 else:
                     print("Oops, the passwords do not seem to march, please try again")
