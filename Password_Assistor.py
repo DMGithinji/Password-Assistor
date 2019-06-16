@@ -112,9 +112,8 @@ def main():
                     print ('\n')
                     print(f"{first_name} {last_name}, your Password Assistor (PA) account has been successfully been created")
                     print ('\n')
-                    token = True
                     ##########################################################################################################################
-                    while token:
+                    while True:
                         print("Use these short codes to navigate through this section of the app:\nsa - Save Account Credentials\nna - New Account Credentials\nda - Display Accounts that have been registered on the app\ndc - Display Credentials for a specific account that has been registered on the app\ndel - Delete an account that has been registered on the app\nex -Exit the Credentials Section")
                         print("Input shortcode: ")
 
@@ -171,6 +170,10 @@ def main():
                             print ('\n')
                             print(f"Ok {first_name}, your account credentials for {account} have been successfully been saved")
                             print ('\n')
+
+                        elif short_code == 'da':
+                            print("The following are the accounts have your login credentials saved:")
+                            print(display_accounts())
 
                 else:
                     print("Oops, the passwords do not seem to march, please try again")
