@@ -41,6 +41,17 @@ class Credentials:
         self.assertEqual(Credentials.display_contact(),Credentials.contact_list)
 
     @classmethod
+    def account_exists(cls, account_name):
+        '''
+        Method to check if an account exists
+        Args:
+            account_name: Name of the account which you seek display its credentials
+        '''
+        for account_details in cls.accounts_credentials:
+            return account_details.account == account_name
+
+
+    @classmethod
     def find_by_account(cls, account_name):
         '''
         Method to display an account's credentials on entering account name

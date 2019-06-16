@@ -62,6 +62,14 @@ def display_accounts():
     '''
     return Credentials.display_accounts()
 
+def account_exists(account_name):
+    '''
+    Function that determines whether an account exists or not
+
+    Output: Boolean
+    '''
+    return Credentials.account_exists(account_name)
+
 def find_by_account(account_name):
     '''
     Function that finds a contact by number and returns the contact
@@ -180,25 +188,34 @@ def main():
                                 print("Oops, that short code does not seem to march any of the prescribed shortcodes, please try again")
 
                         elif short_code == 'da':
-                            print("The following are the accounts have your login credentials saved:")
-                            print(display_accounts())
+                            if display_accounts():
+                                print("The following are the accounts have your login credentials saved:")
+                                print(display_accounts())
+                            else:
+                                print("You don't seem to have anything saved yet.")
 
                         elif short_code == 'dc':
                             print("Enter the name of the account you wish to see the credentials of")
                             account_name = input()
-                            print(find_by_account(account_name))
+                            if account_exists(account_name):
+                                print(find_by_account(account_name))
+                            else:
+                                print("The account name you entered is currently not registered in the app")
 
                         elif short_code == 'del':
                             print("Enter the name of the account you wish to delete")
                             account_name = input()
-                            delete_by_account(account_name)
-                            print(f"{account_name} has been successfully deleted")
+                            if account_exists(account_name):
+                                delete_by_account(account_name)
+                                print(f"{account_name} has been successfully deleted")
+                            else:
+                                print("The account name you entered is currently not registered in the app")
 
                 else:
                     print("Oops, the passwords do not seem to march, please try again")
 
         elif short_code == 'ex':
-            print("Bye .......")
+            print("Good Day .......")
             break
 
         else:
