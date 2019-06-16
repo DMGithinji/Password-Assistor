@@ -44,13 +44,14 @@ class Credentials:
             i=i+1
         return displayed_accounts
 
-        self.assertEqual(Contact.display_contact(),Contact.contact_list)
+        self.assertEqual(Credentials.display_contact(),Credentials.contact_list)
 
     @classmethod
     def password_generator(cls, password_length = 8):
         '''
         Method for generating random passwords with lower-case, upper-case, digits and special characters
-
+        Args:
+            password_length: The number of characters in the password to be generated
         '''
         password_chars = string.ascii_letters + string.digits + string.punctuation
         return ''.join(random.choice(password_chars) for i in range (password_length))
@@ -58,8 +59,9 @@ class Credentials:
     @classmethod
     def find_by_account(cls, account_name):
         '''
-
-
+        Method to display an account's credentials on entering account name
+        Args:
+            account_name: Name of the account which you seek display its credentials
         '''
         for account_details in cls.accounts_credentials:
             if account_details.account == account_name:
