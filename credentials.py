@@ -28,7 +28,7 @@ class Credentials:
     @classmethod
     def display_accounts(cls):
         '''
-        test to see if the display is shown
+        Method to display accounts
 
         '''
         displayed_accounts = ''

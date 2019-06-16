@@ -18,7 +18,7 @@ class TestCredentials(unittest.TestCase):
 
     def tearDown(self):
         '''
-        tearDown method that does clean up after each test case has run.
+        TearDown method that does clean up after each test case has run.
 
         '''
         Credentials.accounts_credentials = []
@@ -43,7 +43,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_delete_credentials(self):
         '''
-        test_delete_credentials to test if we can remove a credentials from our credentials list
+        Test_delete_credentials to test if we can remove a credentials from our credentials list
 
         '''
         self.new_account_credentials.save_credentials()
@@ -85,7 +85,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_delete_credentials(self):
         '''
-        test_delete_credentials to test if we can remove a credentials from our credentials list
+        Test_delete_credentials to test if we can remove a credentials from our credentials list
 
         '''
         self.new_account_credentials.save_credentials()
